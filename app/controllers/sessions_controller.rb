@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       flash[:success] = "You are signed in!"
       log_in(@user)
       params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
-      redirect_to @user
+      redirect_back_or @user
       # log in user and redirect to resource user/show
     else
       flash.now[:danger] = "Invalid email/password combination."
